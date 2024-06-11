@@ -2,6 +2,9 @@
 
 const props = defineProps(['post']);
 
+const tagsFormatter = (length, tag, index) => {
+    return index < length - 1? tag.name + " - " :  tag.name
+};
 
 
 </script>
@@ -17,11 +20,11 @@ const props = defineProps(['post']);
             
             <span class="published-label" :class="{isPublished: post.published, notPublished: !post.published }" >{{ post.published? "Published" : "Not published yet" }}</span>
         </div>
-        <h6>{{ post.category }}</h6>
-        <h6>{{ post.userId }}</h6>
+        <h6>{{ post.category.name }}</h6>
+        <!-- <h6>{{ post.userId }}</h6> -->
         <div>
             <span v-for="(tag, index) in post.tags" :key="tag.id">
-                {{ tag }}
+                {{ tagsFormatter(post.tags.length, tag, index) }}
             </span>
         </div>
     </div>
