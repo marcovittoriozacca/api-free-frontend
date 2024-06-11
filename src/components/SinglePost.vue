@@ -20,7 +20,7 @@ const props = defineProps(['post']);
         <h6>{{ post.category }}</h6>
         <h6>{{ post.userId }}</h6>
         <div>
-            <span v-for="(tag, index) in post.tags" :key="index">
+            <span v-for="(tag, index) in post.tags" :key="tag.id">
                 {{ tag }}
             </span>
         </div>
