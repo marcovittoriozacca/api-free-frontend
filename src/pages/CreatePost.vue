@@ -2,6 +2,9 @@
 import { ref, onMounted } from 'vue';
 import { store } from '../store';
 import axios from 'axios';
+import { useRouter } from 'vue-router'
+
+const router = useRouter();
 
 const title = ref("");
 const content = ref("");
@@ -43,6 +46,11 @@ const createPost = async () => {
             tags: tags.value,
         }
         const apiCall = await axios.post(`${store.apiUrl}/${posts}`, apiBody);
+
+        const param = apiCall.data.post_created.slug;
+        router.push({ name: "show-post", params: { slug: param} });
+        
+
     }catch(err){
         console.error(err);
     }

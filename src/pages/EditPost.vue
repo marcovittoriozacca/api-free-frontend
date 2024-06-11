@@ -70,6 +70,25 @@ const getPost = async () => {
 
 }
 
+const updatePost = async () => {
+    const posts = import.meta.env.VITE_POSTS;
+    const param = route.params.slug;
+    try{
+        const updatedData = {
+            title: title.value,
+            content: content.value,
+            published: published.value,
+            categoryId: categoryId.value,
+            tags: tags.value,
+        }
+        const apiCall = await axios.put(`${store.apiUrl}/${posts}/${param}`, updatedData);
+        router.push({ name: 'home'})
+    }catch(err){
+        console.error(err);
+    }
+
+}
+
 onMounted(async () => {
     await getTagsAndCategories()
     await getPost();
@@ -123,7 +142,7 @@ onMounted(async () => {
                 </div>
         
                 <div class="mb-3">
-                    <button type="submit" class="text-white bg-sky-500 px-5 py-2 rounded-lg">Create Post</button>
+                    <button type="submit" @click="updatePost()" class="text-white bg-sky-500 px-5 py-2 rounded-lg">Update Post</button>
                 </div>
             </div>
         
