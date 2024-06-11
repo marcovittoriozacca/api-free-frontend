@@ -15,14 +15,13 @@ const tagsFormatter = (length, tag, index) => {
         <div class="flex justify-between items-start px-2 py-4">
             <div>
                 <h2 class="text-2xl font-bold">{{ post.title }}</h2>
-                <!-- <p class="text-slate-700">{{ post.content }}</p> -->
+                <p class="text-slate-700">{{ post.content }}</p>
             </div>
             
             <span class="published-label" :class="{isPublished: post.published, notPublished: !post.published }" >{{ post.published? "Published" : "Not published yet" }}</span>
         </div>
-        <h6>{{ post.category.name }}</h6>
-        <!-- <h6>{{ post.userId }}</h6> -->
-        <div>
+        <h6>{{ post.category?.name }}</h6>
+        <div v-if="post.tags.length > 0">
             <span v-for="(tag, index) in post.tags" :key="tag.id">
                 {{ tagsFormatter(post.tags.length, tag, index) }}
             </span>
