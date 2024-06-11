@@ -43,7 +43,6 @@ const createPost = async () => {
             tags: tags.value,
         }
         const apiCall = await axios.post(`${store.apiUrl}/${posts}`, apiBody);
-        console.log(apiCall);
     }catch(err){
         console.error(err);
     }

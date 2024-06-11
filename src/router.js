@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import HomePage from "./pages/HomePage.vue";
 import CreatePost from "./pages/CreatePost.vue";
+import ShowPost from "./pages/ShowPost.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -15,6 +16,11 @@ const router = createRouter({
             path: '/create-post',
             name: 'createPost',
             component: CreatePost,
+        },
+        {
+            path: '/posts/:slug',
+            name: 'show-post',
+            component: ShowPost,
         },
         // {
         //     path: '/:patchMatch(.*)*',
