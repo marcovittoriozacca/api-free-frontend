@@ -30,6 +30,11 @@ const tagsFormatter = (length, tag, index) => {
                     {{ tagsFormatter(post.tags.length, tag, index) }}
                 </span>
             </div>
+            <router-link :to="{ name: 'edit-post', params: {slug: post.slug} }">
+                <div class="text-end">
+                    <i class="fas fa-pen-to-square text-yellow-400 text-3xl"></i>
+                </div>
+            </router-link>
         </div>
     </router-link>
 </template>

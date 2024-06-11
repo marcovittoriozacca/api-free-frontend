@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from "./pages/HomePage.vue";
 import CreatePost from "./pages/CreatePost.vue";
 import ShowPost from "./pages/ShowPost.vue";
+import EditPost from "./pages/EditPost.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -21,6 +22,11 @@ const router = createRouter({
             path: '/posts/:slug',
             name: 'show-post',
             component: ShowPost,
+        },
+        {
+            path: '/posts/edit/:slug',
+            name: 'edit-post',
+            component: EditPost,
         },
         // {
         //     path: '/:patchMatch(.*)*',
