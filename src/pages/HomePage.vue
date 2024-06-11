@@ -22,7 +22,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="flex flex-col items-center">
+    <div class="flex flex-col items-center py-5 gap-y-8">
         <SinglePost 
             v-for="(post, index) in store.postsList.postsList" :key="post.id"
             :post = "post"

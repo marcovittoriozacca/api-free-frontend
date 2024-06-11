@@ -6,7 +6,7 @@ import HomePage from './pages/HomePage.vue';
 
 <template>
 
-  <main>
+  <main class="container mx-auto">
     <router-view/>
   </main>
 
